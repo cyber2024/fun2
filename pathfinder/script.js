@@ -1,6 +1,25 @@
 //get reference to the canvas from index.html
 var canvas = document.getElementById("myCanvas");
 
+var start = document.querySelector("#start");
+start.addEventListener('click',function(){
+  startPathFinding();
+});
+var ransomize = document.querySelector("#randomize");
+randomize.addEventListener('click',function(){
+  grid.clearPath();
+  for(var i = 0; i < grid.array.length; i++){
+    for(var j = 0; j < grid.array[0].length; j++){
+      if(!grid.array[i][j].start && !grid.array[i][j].end){
+        grid.array[i][j].blocked = false;
+        if(Math.random() > 0.85){
+          grid.array[i][j].blocked = true;
+        }
+      }
+    }
+  }
+});
+
 var s = document.querySelector("#status");
 
 //set up cnvas
