@@ -10,4 +10,5 @@ app.get('/rockets',function(req,res){
 app.get('/pathfinder',function(req,res){
   res.sendFile(process.cwd()+'/pathfinder/html');
 });
-app.listen(80);
+var port = process.env.PORT || 8080;
+app.listen(port);
